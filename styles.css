@@ -1,0 +1,73 @@
+body {
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Comic Neue', cursive;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#question {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.gif-container {
+    width: 100%;
+    max-width: 300px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.gif-container img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 25px;
+    border: none;
+    background-color: #ff9999;
+    color: white;
+    font-family: 'Comic Neue', cursive;
+    min-width: 120px;
+}
+
+#noBtn {
+    position: absolute;
+}
+
+#noBtn.moved {
+    transition: all 0.5s ease;
+}
+
+@media (max-width: 600px) {
+    #question {
+        font-size: 20px;
+    }
+    button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
