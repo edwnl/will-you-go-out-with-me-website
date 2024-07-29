@@ -1,10 +1,11 @@
 const question = document.getElementById('question');
 const yesBtn = document.getElementById('yesBtn');
 const noBtn = document.getElementById('noBtn');
+const buttons = document.getElementById('buttons');
 const gifContainer = document.querySelector('.gif-container');
 
 let noBtnMoved = false;
-let hoverCount = 0;
+let interactionCount = 0;
 
 const noPhrases = [
     "Really?", "Think about it!", "Are you sure?", "Pretty please?",
@@ -25,16 +26,23 @@ yesBtn.addEventListener('click', () => {
     gifContainer.innerHTML = '<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDRheGVraHJ0cGEzdHFzb2F4eXljYmFvYjBjZXVoeXVvM2Z2ajV4YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/92YG8KKSjYhMc/giphy.gif" alt="Yay GIF">';
 });
 
-noBtn.addEventListener('mouseover', () => {
-    hoverCount++;
-    if (hoverCount < 5) {
+function handleNoButtonInteraction(event) {
+    event.preventDefault();
+    interactionCount++;
+    if (interactionCount < 5) {
         moveButton();
         changeNoBtnText();
     } else {
         moveOffScreen();
     }
+}
+
+noBtn.addEventListener('mouseover', handleNoButtonInteraction);
+noBtn.addEventListener('touchstart', handleNoButtonInteraction);
+noBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    handleNoButtonInteraction(event);
 });
-noBtn.addEventListener('click', moveButton);
 
 function moveButton() {
     const maxX = window.innerWidth - noBtn.offsetWidth;
