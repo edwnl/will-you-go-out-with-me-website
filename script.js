@@ -29,7 +29,7 @@ yesBtn.addEventListener('click', () => {
 function handleNoButtonInteraction(event) {
     event.preventDefault();
     interactionCount++;
-    if (interactionCount < 5) {
+    if (interactionCount < 10) {
         moveButton();
         changeNoBtnText();
     } else {
